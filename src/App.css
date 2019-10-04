@@ -1,0 +1,12 @@
+.card {
+  margin: 10px;
+  width: 20%;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: space-around
+}
