@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
+
 import './App.css';
+
 import Form from './Components/Form'
 import Card from './Components/Card'
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      loading: true,
-      city: "Lisbon",
-      geocode: "",
-      weatherInfo: []
-    }
-    this.handleSearch = this.handleSearch.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+  state = {
+    loading: true,
+    city: "Lisbon",
+    geocode: "",
+    weatherInfo: []
   }
 
-  handleSearch() {
+  handleSearch = () => {
     this.setState({ loading: true })
     fetch(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.city}&format=json`)
     .then(response => response.json())
@@ -33,10 +30,10 @@ class App extends Component {
     })
   }
 
-  handleChange(event) {
-    const { name } = event.target
+  handleChange = (event) => {
+    const { name, value } = event.target
     this.setState({
-      [name]: event.target.value
+      [name]: value
     })
     this.handleSearch()
   }
