@@ -20,7 +20,7 @@ class App extends Component {
     .then(data => {
       if (data.error !== "Unable to geocode")
       { this.setState({ geocode: data[0] })
-        fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/${this.state.geocode.lat},${this.state.geocode.lon}?units=si&lang=pt&exclude=hourly`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/${this.state.geocode.lat},${this.state.geocode.lon}?units=si`)
           .then(response => response.json())
           .then(data => this.setState({
             weatherInfo: data,
@@ -41,7 +41,9 @@ class App extends Component {
   render() {
     let displayResults = false
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
-      displayResults = this.state.weatherInfo.daily.data.map( (info) => <div className="card"><Card state={info} /></div>)
+      let weatherData = this.state.weatherInfo.daily.data
+      weatherData.splice(0,1)
+      displayResults = weatherData.map( (info) => <div className="card"><Card state={info} /></div>)
     }
 
     return (
