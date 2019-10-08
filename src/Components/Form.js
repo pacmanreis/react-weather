@@ -5,6 +5,7 @@ function Form(props) {
   return(
     <div>
       <DebounceInput
+        className="form-control"
         name={props.name}
         placeholder="Search for a City"
         minLength={2}

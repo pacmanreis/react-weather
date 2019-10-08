@@ -1,6 +1,7 @@
 .card {
   margin: 10px;
   width: 20%;
+  min-width: 175px
 }
 
 .card-list {

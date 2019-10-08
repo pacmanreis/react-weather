@@ -10,11 +10,10 @@ class Card extends Component {
 
   render() {
     return(
-      <div>
-        <p>{this.convert(`${this.props.state.time}`)}</p>
-        <p>High: {this.props.state.temperatureHigh}</p>
-        <p>Low: {this.props.state.temperatureLow}</p>
-        <p>{this.props.state.summary}</p>
+      <div className="card-body">
+        <h5 class="card-title">{this.convert(`${this.props.state.time}`)}</h5>
+        <p className="card-text">High: {this.props.state.temperatureHigh}</p>
+        <p className="card-text">Low: {this.props.state.temperatureLow}</p>
       </div>
     )
   }

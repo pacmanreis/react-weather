@@ -43,12 +43,14 @@ class App extends Component {
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
       let weatherData = this.state.weatherInfo.daily.data
       weatherData.splice(0,1)
-      displayResults = weatherData.map( (info) => <div className="card"><Card state={info} /></div>)
+      displayResults = weatherData.map( (info) => <div className="card text-white bg-primary mb-3"><Card state={info} /></div>)
     }
 
     return (
       <div>
-        <Form name="city" handleChange={this.handleChange} data={this.state} />
+        <div>
+            <Form name="city" handleChange={this.handleChange} data={this.state} />
+        </div>
         <div className="card-list">
           {displayResults}
         </div>
