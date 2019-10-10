@@ -1,19 +1,19 @@
 import React from 'react'
 import { DebounceInput } from 'react-debounce-input';
 
+import './Form.css'
+
 function Form(props) {
   return(
-    <div>
       <DebounceInput
-        className="form-control"
+        type='text'
+        className='search'
         name={props.name}
-        placeholder="Search for a City"
+        placeholder='Search for a City'
         minLength={2}
         debounceTimeout={300}
-        type="text"
         onChange={props.handleChange}
       />
-    </div>
   )
 }
 

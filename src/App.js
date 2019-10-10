@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import Week from './Components/Week'
 import Form from './Components/Form'
-import Card from './Components/Card'
+import Today from './Components/Today'
 
 class App extends Component {
   state = {
@@ -15,7 +16,7 @@ class App extends Component {
 
   handleSearch = () => {
     this.setState({ loading: true })
-    fetch(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.city}&format=json`)
+    fetch(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.city}&format=json&accept-language=en`)
     .then(response => response.json())
     .then(data => {
       if (data.error !== "Unable to geocode")
@@ -27,32 +28,41 @@ class App extends Component {
             loading: false
           }))
       }
-    })
+    });
   }
 
   handleChange = (event) => {
-    const { name, value } = event.target
+    const { name, value } = event.target;
     this.setState({
       [name]: value
-    })
-    this.handleSearch()
+    });
+    this.handleSearch();
   }
 
   render() {
-    let displayResults = false
+    let displayToday = false;
+    let displayWeek = false;
+    let todaySummary = false;
+    let weekSummary = false;
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
-      let weatherData = this.state.weatherInfo.daily.data
-      weatherData.splice(0,1)
-      displayResults = weatherData.map( (info) => <div className="card text-white bg-primary mb-3"><Card state={info} /></div>)
-    }
+      displayWeek = <Week data={this.state} />
+      displayToday = <Today data={this.state} />
+      todaySummary = this.state.weatherInfo.hourly.summary
+      weekSummary = this.state.weatherInfo.daily.summary
+    };
 
     return (
-      <div>
-        <div>
-            <Form name="city" handleChange={this.handleChange} data={this.state} />
+      <div className="app">
+        <div className="navbar">
+          <Form name="city" handleChange={this.handleChange} data={this.state} />
         </div>
-        <div className="card-list">
-          {displayResults}
+        {todaySummary}
+        <div>
+          {displayToday}
+        </div>
+        {weekSummary}
+        <div>
+          {displayWeek}
         </div>
       </div>
     );
