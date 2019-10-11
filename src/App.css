@@ -1,5 +1,7 @@
 .app {
   text-align: center;
   padding: 5px;
+  min-width: 320px;
+  max-width: 414px;
 }
 
