@@ -10,7 +10,8 @@ const convert = (unixTimestamp) => {
 }
 
 const Week = props => {
-  const weekData = props.data.weatherInfo.daily.data
+  let weekData = props.data.weatherInfo.daily.data
+  weekData.shift()
   const dayData = weekData.map((day, index) => {
     return <div className="hour" key={index + 100}>
       <div>
@@ -25,7 +26,7 @@ const Week = props => {
   return(
     <div className="container">
     <div className="header">
-      <div>Next Days</div>
+      <div>Next 7 Days</div>
     </div>
     <div className="body">{dayData}</div>
   </div>
