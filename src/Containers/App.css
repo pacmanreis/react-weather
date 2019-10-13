@@ -5,3 +5,45 @@
   max-width: 414px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #9e9e9e38;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: solid;
+  border-width: thin;
+  border-color: #8e8e8e40;
+  padding: 5px;
+}
+
+.body {
+  background-color: white;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: solid;
+  border-width: thin;
+  border-color: #8e8e8e40;
+  border-top: hidden;
+  padding: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.weather-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.weather-icon {
+  position: absolute;
+  left: 50%;
+}

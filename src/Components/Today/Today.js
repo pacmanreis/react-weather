@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './Today.css';
-
 const convertweekDay = (unixTimestamp) => {
  const date = new Date(unixTimestamp*1000)
  const weekDay = date.getDay()
@@ -24,9 +22,12 @@ const Today = (props) => {
   const hourlyData = props.data.weatherInfo.hourly.data
   const timeToday = hourlyData.map((data, index) =>
     convertweekDay(hourlyData[0].time) === convertweekDay(data.time) ?
-      <div className="hour" key={index}>
+      <div className="weather-item" key={index}>
         <div>
           {convertHours(data.time)+":00"}
+        </div>
+        <div className="weather-icon">
+          <img src={`./assets/${data.icon}.svg`} alt={data.icon} width="30"/>
         </div>
         <div>
           {Math.round(data.temperature)+"º"}
