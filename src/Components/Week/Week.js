@@ -17,7 +17,7 @@ const Week = props => {
         {convert(day.time)}
       </div>
       <div>
-        {day.temperatureHigh}º/{day.temperatureLow}º
+        {Math.round(day.temperatureHigh)}º/{Math.round(day.temperatureLow)}º
       </div>
     </div>}
   )
