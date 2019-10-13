@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import Week from './Components/Week'
-import Form from './Components/Form'
-import Today from './Components/Today'
+import Navbar from '../Components/Navbar/Navbar'
+import Today from '../Components/Today/Today'
+import Week from '../Components/Week/Week'
 
 class App extends Component {
   state = {
@@ -54,14 +54,14 @@ class App extends Component {
     return (
       <div className="app">
         <div className="navbar">
-          <Form name="city" handleChange={this.handleChange} data={this.state} />
+          <Navbar name="city" handleChange={this.handleChange} data={this.state} />
         </div>
-        {todaySummary}
         <div>
+          {todaySummary}
           {displayToday}
         </div>
-        {weekSummary}
         <div>
+          {weekSummary}
           {displayWeek}
         </div>
       </div>

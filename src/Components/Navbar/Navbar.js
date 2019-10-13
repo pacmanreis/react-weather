@@ -1,9 +1,9 @@
 import React from 'react'
 import { DebounceInput } from 'react-debounce-input';
 
-import './Form.css'
+import './Navbar.css'
 
-function Form(props) {
+function Navbar(props) {
   return(
       <DebounceInput
         type='text'
@@ -17,4 +17,4 @@ function Form(props) {
   )
 }
 
-export default Form
+export default Navbar
