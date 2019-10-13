@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Today.css';
 
-const convert = (unixTimestamp) => {
+const convertweekDay = (unixTimestamp) => {
  const date = new Date(unixTimestamp*1000)
  const weekDay = date.getDay()
  return weekDay
@@ -22,17 +22,17 @@ const Today = (props) => {
 
   const dailyData = props.data.weatherInfo.daily.data
   const hourlyData = props.data.weatherInfo.hourly.data
-  const timeToday = hourlyData.map((data, index) => {
-    return convert(hourlyData[0].time) === convert(data.time) ?
-    <div className="hour" key={index}>
-      <div>
-        {convertHours(data.time)+":00"}
+  const timeToday = hourlyData.map((data, index) =>
+    convertweekDay(hourlyData[0].time) === convertweekDay(data.time) ?
+      <div className="hour" key={index}>
+        <div>
+          {convertHours(data.time)+":00"}
+        </div>
+        <div>
+          {data.temperature+"º"}
+        </div>
       </div>
-      <div>
-        {data.temperature+"º"}
-      </div>
-    </div>
-     : null }
+     : null
   )
 
   return(
