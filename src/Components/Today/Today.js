@@ -29,7 +29,7 @@ const Today = (props) => {
           {convertHours(data.time)+":00"}
         </div>
         <div>
-          {data.temperature+"º"}
+          {Math.round(data.temperature)+"º"}
         </div>
       </div>
      : null
@@ -39,7 +39,7 @@ const Today = (props) => {
     <div className="container">
       <div className="header">
         <div>{city}, {country} (Today)</div>
-        <div>{dailyData[0].temperatureHigh}º/{dailyData[0].temperatureLow}º</div>
+        <div>{Math.round(dailyData[0].temperatureHigh)}º/{Math.round(dailyData[0].temperatureLow)}º</div>
       </div>
       <div className="body">{timeToday}</div>
     </div>
