@@ -18,8 +18,9 @@ const Today = (props) => {
   const city = citySplit[0];
   const country = citySplit[citySplit.length-1];
 
-  const dailyData = props.data.weatherInfo.daily.data
-  const hourlyData = props.data.weatherInfo.hourly.data
+  const currentData = props.data.weatherInfo.currently;
+  const dailyData = props.data.weatherInfo.daily.data;
+  const hourlyData = props.data.weatherInfo.hourly.data;
   const timeToday = hourlyData.map((data, index) =>
     convertweekDay(hourlyData[0].time) === convertweekDay(data.time) ?
       <div className="weather-item" key={index}>
@@ -36,13 +37,28 @@ const Today = (props) => {
      : null
   )
 
+  const summary = <div className="summary-container">
+                    <div className="upper-summary">
+                      <div><img src={`./assets/${currentData.icon}.svg`} alt={currentData.icon} width="60"/></div>
+                      <div>
+                        <p>{currentData.summary}</p>
+                        <p>Chance of Rain: {currentData.precipProbability * 100}%</p>
+                      </div>
+                      <div className="temperature">{Math.round(currentData.temperature)}º</div>
+                    </div>
+                    <div>
+                      <hr className="split" />
+                      <p className="wrap">{props.data.weatherInfo.hourly.summary}</p>
+                    </div>
+                  </div>
+
   return(
     <div className="container" onClick={props.clicked}>
       <div className="header">
         <div>{city}, {country} (Today)</div>
         <div>{Math.round(dailyData[0].temperatureHigh)}º/{Math.round(dailyData[0].temperatureLow)}º</div>
       </div>
-      <div className="body">{props.data.todaySummary ? <p className="wrap">{props.data.weatherInfo.hourly.summary}</p> : timeToday}</div>
+      <div className="body">{props.data.todaySummary ? summary : timeToday}</div>
     </div>
   )
 };
