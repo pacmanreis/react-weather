@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from '../Components/Navbar/Navbar'
 import Today from '../Components/Today/Today'
 import Week from '../Components/Week/Week'
+import Welcome from '../Components/Welcome/Welcome'
 
 class App extends Component {
   state = {
@@ -44,11 +45,13 @@ class App extends Component {
     let displayWeek = false;
     let todaySummary = false;
     let weekSummary = false;
+    let welcome = <Welcome />;
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
-      displayWeek = <Week data={this.state} />
-      displayToday = <Today data={this.state} />
-      todaySummary = this.state.weatherInfo.hourly.summary
-      weekSummary = this.state.weatherInfo.daily.summary
+      welcome = false;
+      displayWeek = <Week data={this.state} />;
+      displayToday = <Today data={this.state} />;
+      todaySummary = this.state.weatherInfo.hourly.summary;
+      weekSummary = this.state.weatherInfo.daily.summary;
     };
 
     return (
@@ -56,6 +59,7 @@ class App extends Component {
         <div className="navbar">
           <Navbar name="city" handleChange={this.handleChange} data={this.state} />
         </div>
+        {welcome}
         <div>
           {todaySummary}
           {displayToday}
