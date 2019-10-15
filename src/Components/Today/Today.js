@@ -37,12 +37,12 @@ const Today = (props) => {
   )
 
   return(
-    <div className="container">
+    <div className="container" onClick={props.clicked}>
       <div className="header">
         <div>{city}, {country} (Today)</div>
         <div>{Math.round(dailyData[0].temperatureHigh)}º/{Math.round(dailyData[0].temperatureLow)}º</div>
       </div>
-      <div className="body">{timeToday}</div>
+      <div className="body">{props.data.todaySummary ? <p className="wrap">{props.data.weatherInfo.hourly.summary}</p> : timeToday}</div>
     </div>
   )
 };

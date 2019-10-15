@@ -8,9 +8,10 @@ const convert = (unixTimestamp) => {
 }
 
 const Week = props => {
-  let weekData = props.data.weatherInfo.daily.data
-  weekData.shift()
-  const dayData = weekData.map((day, index) => {
+  const weekData = props.data.weatherInfo.daily.data
+  let weekTest = weekData.slice(0)
+  weekTest.shift()
+  const dayData = weekTest.map((day, index) => {
     return <div className="weather-item" key={index + 100}>
       <div>
         {convert(day.time)}
@@ -25,11 +26,11 @@ const Week = props => {
   )
 
   return(
-    <div className="container">
+    <div className="container" onClick={props.clicked}>
     <div className="header">
       <div>Next 7 Days</div>
     </div>
-    <div className="body">{dayData}</div>
+    <div className="body">{props.data.weekSummary ? <p className="wrap">{props.data.weatherInfo.daily.summary}</p> : dayData}</div>
   </div>
   )
 }

@@ -3,6 +3,7 @@
   padding: 5px;
   min-width: 320px;
   max-width: 414px;
+  width: 100%;
 }
 
 .container {
@@ -46,4 +47,8 @@
 .weather-icon {
   position: absolute;
   left: 50%;
+}
+
+.wrap {
+  word-wrap: break-word;
 }

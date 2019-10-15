@@ -12,7 +12,9 @@ class App extends Component {
     loading: true,
     city: "Lisbon",
     geocode: "",
-    weatherInfo: []
+    weatherInfo: [],
+    todaySummary: true,
+    weekSummary: true
   }
 
   handleSearch = () => {
@@ -40,18 +42,26 @@ class App extends Component {
     this.handleSearch();
   }
 
+  handleClickToday = () => {
+    this.setState({
+      todaySummary: !this.state.todaySummary
+    })
+  }
+
+  handleClickWeek = () => {
+    this.setState({
+      weekSummary: !this.state.weekSummary
+    })
+  }
+
   render() {
     let displayToday = false;
     let displayWeek = false;
-    let todaySummary = false;
-    let weekSummary = false;
     let welcome = <Welcome />;
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
       welcome = false;
-      displayWeek = <Week data={this.state} />;
-      displayToday = <Today data={this.state} />;
-      todaySummary = this.state.weatherInfo.hourly.summary;
-      weekSummary = this.state.weatherInfo.daily.summary;
+      displayWeek = <Week data={this.state}  clicked={this.handleClickWeek} />;
+      displayToday = <Today data={this.state} clicked={this.handleClickToday} />;
     };
 
     return (
@@ -61,11 +71,9 @@ class App extends Component {
         </div>
         {welcome}
         <div>
-          {todaySummary}
           {displayToday}
         </div>
         <div>
-          {weekSummary}
           {displayWeek}
         </div>
       </div>
