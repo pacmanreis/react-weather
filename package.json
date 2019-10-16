@@ -2,6 +2,7 @@
   "name": "react-weather",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pacmanreis.github.io/react-weather/",
   "dependencies": {
     "react": "^16.10.2",
     "react-debounce-input": "^3.2.0",
@@ -12,7 +13,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
