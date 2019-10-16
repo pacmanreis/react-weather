@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import './App.css';
 
@@ -60,8 +61,24 @@ class App extends Component {
     let welcome = <Welcome />;
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
       welcome = false;
-      displayWeek = <Week data={this.state}  clicked={this.handleClickWeek} />;
-      displayToday = <Today data={this.state} clicked={this.handleClickToday} />;
+      displayWeek = <CSSTransition
+                        in={true}
+                        appear
+                        timeout={1000}
+                        classNames="fade"
+                        key="bljkablkjabda"
+                      >
+                        <Week data={this.state}  clicked={this.handleClickWeek} />
+                      </CSSTransition>;
+      displayToday = <CSSTransition
+                          in={true}
+                          appear
+                          timeout={1000}
+                          classNames="fade"
+                          key="b3232ljkablkjabda"
+                        >
+                          <Today data={this.state} clicked={this.handleClickToday} />
+                        </CSSTransition>;
     };
 
     return (
