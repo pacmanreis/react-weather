@@ -58,7 +58,7 @@ class App extends Component {
   render() {
     let displayToday = false;
     let displayWeek = false;
-    let welcome = <Welcome />;
+    let welcome = <div className="welcome"><Welcome /></div>;
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
       welcome = false;
       displayWeek = <CSSTransition

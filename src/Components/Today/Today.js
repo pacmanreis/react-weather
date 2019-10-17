@@ -48,7 +48,8 @@ const Today = (props) => {
                     </div>
                     <div>
                       <hr className="split" />
-                      <p className="wrap">{props.data.weatherInfo.hourly.summary}</p>
+                      <p className="summary">{props.data.weatherInfo.hourly.summary}</p>
+                      <p className="details">See more</p>
                     </div>
                   </div>
 
