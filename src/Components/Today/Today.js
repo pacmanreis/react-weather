@@ -42,7 +42,7 @@ const Today = (props) => {
                       <div><img src={`./assets/${currentData.icon}.svg`} alt={currentData.icon} width="60"/></div>
                       <div>
                         <p>{currentData.summary}</p>
-                        <p>Chance of Rain: {currentData.precipProbability * 100}%</p>
+                        <p>Chance of Rain: {Math.round(currentData.precipProbability * 100)}%</p>
                       </div>
                       <div className="temperature">{Math.round(currentData.temperature)}º</div>
                     </div>
