@@ -58,7 +58,9 @@ const Today = (props) => {
         <div>{city}, {country} (Today)</div>
         <div>{Math.round(dailyData[0].temperatureHigh)}º/{Math.round(dailyData[0].temperatureLow)}º</div>
       </div>
-      <div className="body">{props.data.todaySummary ? summary : timeToday}</div>
+      <div className="body">
+      {props.data.todaySummary ? summary : timeToday}
+      </div>
     </div>
   )
 };

@@ -30,7 +30,7 @@ const Week = props => {
     <div className="header">
       <div>Next 7 Days</div>
     </div>
-    <div className="body">{props.data.weekSummary ? <p className="wrap">{props.data.weatherInfo.daily.summary}</p> : dayData}</div>
+    <div className="body">{props.data.weekSummary ? <p>{props.data.weatherInfo.daily.summary}</p> : dayData}</div>
   </div>
   )
 }
