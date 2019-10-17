@@ -87,10 +87,10 @@ class App extends Component {
           <Navbar name="city" handleChange={this.handleChange} data={this.state} />
         </div>
         {welcome}
-        <div>
+        <div className="today-card">
           {displayToday}
         </div>
-        <div>
+        <div className="week-card">
           {displayWeek}
         </div>
       </div>

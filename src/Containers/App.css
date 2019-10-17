@@ -1,7 +1,15 @@
+input {
+  text-align: center;
+}
+
+hr {
+  border: 0.5px solid;
+  border-color: #8e8e8e40;
+}
+
 .app {
   text-align: center;
   padding: 5px;
-  min-width: 320px;
   max-width: 414px;
   width: 100%;
 }
@@ -10,6 +18,10 @@
   display: flex;
   flex-direction: column;
   margin: 5px;
+}
+
+.details {
+  text-decoration: underline;
 }
 
 .header {
@@ -64,8 +76,12 @@
   left: 50%;
 }
 
-.wrap {
-  word-wrap: break-word;
+.today-card:hover {
+  cursor: pointer;
+}
+
+.week-card:hover {
+  cursor: pointer;
 }
 
 /* appear - on page load */
