@@ -28,7 +28,7 @@ const Today = (props) => {
           {convertHours(data.time)+":00"}
         </div>
         <div className="weather-icon">
-          <img src={`./assets/${data.icon}.svg`} alt={data.icon} width="30"/>
+          <img src={`./assets/weather/${data.icon}.svg`} alt={data.icon} width="30"/>
         </div>
         <div>
           {Math.round(data.temperature)+"º"}
@@ -39,7 +39,7 @@ const Today = (props) => {
 
   const summary = <div className="summary-container">
                     <div className="upper-summary">
-                      <div><img src={`./assets/${currentData.icon}.svg`} alt={currentData.icon} width="60"/></div>
+                      <div><img src={`./assets/weather/${currentData.icon}.svg`} alt={currentData.icon} width="60"/></div>
                       <div>
                         <p>{currentData.summary}</p>
                         <p>Chance of Rain: {Math.round(currentData.precipProbability * 100)}%</p>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 import './App.css';
 
@@ -83,16 +83,38 @@ class App extends Component {
 
     return (
       <div className="app">
-        <div className="navbar">
-          <Navbar name="city" handleChange={this.handleChange} data={this.state} />
-        </div>
-        {welcome}
-        <div className="today-card">
-          {displayToday}
-        </div>
-        <div className="week-card">
-          {displayWeek}
-        </div>
+        <main>
+          <div className="navbar">
+            <Navbar name="city" handleChange={this.handleChange} data={this.state} />
+          </div>
+          {welcome}
+          <div className="today-card">
+            {displayToday}
+          </div>
+          <div className="week-card">
+            {displayWeek}
+          </div>
+        </main>
+        <footer>
+          <p>
+            <strong>Developed by Paulo Reis</strong> <a
+              href="https://www.linkedin.com/in/paulo-reis-955411186/"
+              target="_blank"
+              rel="noopener noreferrer">
+              <img src="./assets/icons/linkedin.svg"
+                alt="linkedin"
+                width="15"/>
+            </a> <a href="https://github.com/pacmanreis"
+              target="_blank"
+              rel="noopener noreferrer">
+              <img src="./assets/icons/github.svg"
+                alt="linkedin"
+                width="15"/>
+            </a>
+          </p>
+          <p><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a> &
+          Search by <a href="https://locationiq.com/?ref=link-back">LocationIQ.com</a></p>
+        </footer>
       </div>
     );
   }
