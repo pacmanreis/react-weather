@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './Today.module.css'
 
 const convertweekDay = (unixTimestamp) => {
  const date = new Date(unixTimestamp*1000)
@@ -37,14 +38,14 @@ const Today = (props) => {
      : null
   )
 
-  const summary = <div className="summary-container">
-                    <div className="upper-summary">
+  const summary = <div>
+                    <div className={classes.upperSummary}>
                       <div><img src={`./assets/weather/${currentData.icon}.svg`} alt={currentData.icon} width="60"/></div>
                       <div>
                         <p>{currentData.summary}</p>
                         <p>Chance of Rain: {Math.round(currentData.precipProbability * 100)}%</p>
                       </div>
-                      <div className="temperature">{Math.round(currentData.temperature)}º</div>
+                      <div className={classes.temperature}>{Math.round(currentData.temperature)}º</div>
                     </div>
                     <div>
                       <hr className="split" />
