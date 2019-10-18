@@ -9,7 +9,7 @@ function Navbar(props) {
       <DebounceInput
         type='text'
         className={classes.search}
-        name={props.name}
+        name='city'
         placeholder='Search for a City'
         minLength={2}
         debounceTimeout={300}
@@ -19,4 +19,4 @@ function Navbar(props) {
   )
 }
 
-export default Navbar
+export default React.memo(Navbar);

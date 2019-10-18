@@ -14,10 +14,9 @@ const convertHours = (unixTimestamp) => {
 }
 
 const Today = (props) => {
-  const cityData = props.data.geocode.display_name;
-  const citySplit = cityData.split(', ');
-  const city = citySplit[0];
-  const country = citySplit[citySplit.length-1];
+  const city = props.data.geocode.address.city === undefined ?
+  props.data.geocode.address.state : props.data.geocode.address.city
+  const country = props.data.geocode.address.country
 
   const currentData = props.data.weatherInfo.currently;
   const dailyData = props.data.weatherInfo.daily.data;
@@ -67,4 +66,4 @@ const Today = (props) => {
   )
 };
 
-export default Today;
+export default React.memo(Today);

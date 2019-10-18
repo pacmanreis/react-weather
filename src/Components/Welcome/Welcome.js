@@ -7,4 +7,4 @@ const Welcome = () => {
   </div>
 }
 
-export default Welcome
+export default React.memo(Welcome);
