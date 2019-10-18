@@ -57,7 +57,8 @@ class App extends Component {
   render() {
     let displayToday = false;
     let displayWeek = false;
-    let welcome = <div className="welcome"><Welcome /></div>;
+    let welcome = <Welcome />;
+
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
       welcome = false;
 
@@ -85,16 +86,10 @@ class App extends Component {
     return (
       <div className="app">
         <main>
-          <div className="navbar">
-            <Navbar name="city" handleChange={this.handleChange} data={this.state} />
-          </div>
+          <Navbar name="city" handleChange={this.handleChange} data={this.state} />
           {welcome}
-          <div className="today-card">
-            {displayToday}
-          </div>
-          <div className="week-card">
-            {displayWeek}
-          </div>
+          {displayToday}
+          {displayWeek}
         </main>
         <Footer />
       </div>
