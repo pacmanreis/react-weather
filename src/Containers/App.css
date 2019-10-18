@@ -7,6 +7,16 @@ hr {
   border-color: #8e8e8e40;
 }
 
+main {
+  min-height: 88vh;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1px;
+}
+
 .app {
   text-align: center;
   padding: 5px;
@@ -144,6 +154,7 @@ hr {
   justify-content: center;
   align-items: center;
   height: 50vh;
+  min-height: 75vh;
 }
 
 /* ----------------------------------------------

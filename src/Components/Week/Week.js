@@ -17,7 +17,7 @@ const Week = props => {
         {convert(day.time)}
       </div>
       <div className="weather-icon">
-        <img src={`./assets/${day.icon}.svg`} alt={day.icon} width="30"/>
+        <img src={`./assets/weather/${day.icon}.svg`} alt={day.icon} width="30"/>
       </div>
       <div>
         {Math.round(day.temperatureHigh)}º/{Math.round(day.temperatureLow)}º
