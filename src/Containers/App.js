@@ -10,7 +10,7 @@ import './App.css';
 class App extends Component {
   state = {
     loading: true,
-    city: "Lisbon",
+    city: "",
     geocode: "",
     weatherInfo: [],
     todaySummary: true,
@@ -40,7 +40,7 @@ class App extends Component {
 
   handleSearch = () => {
     this.setState({ loading: true })
-    fetch(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.city}&format=json&accept-language=en`)
+    fetch(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.city}&format=json&accept-language=en&addressdetails=1`)
     .then(response => response.json())
     .then(data => {
       if (data.error !== "Unable to geocode")
@@ -107,7 +107,7 @@ class App extends Component {
     return (
       <div className="app">
         <main>
-          <Navbar name="city" handleChange={this.handleChange} data={this.state} />
+          <Navbar handleChange={this.handleChange} />
           {welcome}
           {displayToday}
           {displayWeek}

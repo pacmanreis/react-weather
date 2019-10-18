@@ -35,4 +35,4 @@ const Week = props => {
   )
 }
 
-export default Week
+export default React.memo(Week);
