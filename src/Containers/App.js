@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
-
-import './App.css';
-
 import Navbar from '../Components/Navbar/Navbar'
 import Today from '../Components/Today/Today'
 import Week from '../Components/Week/Week'
 import Welcome from '../Components/Welcome/Welcome'
+import Footer from '../Components/Footer/Footer'
+import './App.css';
 
 class App extends Component {
   state = {
@@ -61,24 +60,26 @@ class App extends Component {
     let welcome = <div className="welcome"><Welcome /></div>;
     if (this.state.weatherInfo !== undefined && this.state.loading === false) {
       welcome = false;
+
       displayWeek = <CSSTransition
-                        in={true}
-                        appear
-                        timeout={1000}
-                        classNames="fade"
-                        key="bljkablkjabda"
-                      >
-                        <Week data={this.state}  clicked={this.handleClickWeek} />
-                      </CSSTransition>;
+        in={true}
+        appear
+        timeout={1000}
+        classNames="fade"
+        key="bljkablkjabda"
+      >
+        <Week data={this.state}  clicked={this.handleClickWeek} />
+      </CSSTransition>;
+
       displayToday = <CSSTransition
-                          in={true}
-                          appear
-                          timeout={1000}
-                          classNames="fade"
-                          key="b3232ljkablkjabda"
-                        >
-                          <Today data={this.state} clicked={this.handleClickToday} />
-                        </CSSTransition>;
+        in={true}
+        appear
+        timeout={1000}
+        classNames="fade"
+        key="b3232ljkablkjabda"
+      >
+        <Today data={this.state} clicked={this.handleClickToday} />
+      </CSSTransition>;
     };
 
     return (
@@ -95,26 +96,7 @@ class App extends Component {
             {displayWeek}
           </div>
         </main>
-        <footer>
-          <p>
-            <strong>Developed by Paulo Reis</strong> <a
-              href="https://www.linkedin.com/in/paulo-reis-955411186/"
-              target="_blank"
-              rel="noopener noreferrer">
-              <img src="./assets/icons/linkedin.svg"
-                alt="linkedin"
-                width="15"/>
-            </a> <a href="https://github.com/pacmanreis"
-              target="_blank"
-              rel="noopener noreferrer">
-              <img src="./assets/icons/github.svg"
-                alt="linkedin"
-                width="15"/>
-            </a>
-          </p>
-          <p><a href="https://darksky.net/poweredby/">Powered by Dark Sky</a> &
-          Search by <a href="https://locationiq.com/?ref=link-back">LocationIQ.com</a></p>
-        </footer>
+        <Footer />
       </div>
     );
   }
