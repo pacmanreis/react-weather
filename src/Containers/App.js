@@ -44,14 +44,14 @@ class App extends Component {
   }
 
   handleClickToday = () => {
-    this.setState({
-      todaySummary: !this.state.todaySummary
+    this.setState((prevState) => {
+      return {todaySummary: !prevState.todaySummary}
     })
   }
 
   handleClickWeek = () => {
-    this.setState({
-      weekSummary: !this.state.weekSummary
+    this.setState((prevState) => {
+      return {weekSummary: !prevState.weekSummary}
     })
   }
 
