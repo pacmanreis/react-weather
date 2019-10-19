@@ -1,9 +1,9 @@
 import React from 'react'
 import classes from './Welcome.module.css'
 
-const Welcome = () => {
+const Welcome = (props) => {
   return <div className={classes.welcome}>
-    <h1 className={classes.textfocusin}> Welcome to<br /><br />Weather Search</h1>
+    <h1 className={classes.textfocusin}>{props.loading ? <div>Searching Weather</div> : <div>Welcome to<br /><br />Weather Search</div>}</h1>
   </div>
 }
 

@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import Navbar from '../Components/Navbar/Navbar'
-import Today from '../Components/Today/Today'
-import Week from '../Components/Week/Week'
-import Welcome from '../Components/Welcome/Welcome'
-import Footer from '../Components/Footer/Footer'
+import Navbar from '../Components/Navbar/Navbar';
+import Today from '../Components/Today/Today';
+import Week from '../Components/Week/Week';
+import Welcome from '../Components/Welcome/Welcome';
+import Footer from '../Components/Footer/Footer';
 import './App.css';
 
 class App extends Component {
   state = {
-    loading: true,
+    loading: false,
     city: "",
     geocode: "",
     weatherInfo: [],
     todaySummary: true,
-    weekSummary: true
+    weekSummary: true,
+    noresult: false
   }
 
   componentDidMount() {
     const that = this;
-    this.setState({ loading: true })
     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(coordinates);
     function coordinates(position) {
-      fetch(`https://eu1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`)
+      that.setState({ loading: true });
+      fetch(`https://eu1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json&accept-language=en&addressdetails=1`)
         .then(response => response.json())
         .then(data => {
           if (data.error !== "Unable to geocode")
@@ -78,7 +79,7 @@ class App extends Component {
   render() {
     let displayToday = false;
     let displayWeek = false;
-    let welcome = <Welcome />;
+    let welcome = <Welcome loading={this.state.loading} />;
 
     if (this.state.geocode !== "" && this.state.weatherInfo !== undefined && this.state.loading === false) {
       welcome = false;
@@ -108,9 +109,9 @@ class App extends Component {
       <div className="app">
         <main>
           <Navbar handleChange={this.handleChange} />
-          {welcome}
-          {displayToday}
-          {displayWeek}
+            {welcome}
+            {displayToday}
+            {displayWeek}
         </main>
         <Footer />
       </div>
