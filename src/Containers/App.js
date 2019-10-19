@@ -28,7 +28,7 @@ class App extends Component {
         .then(data => {
           if (data.error !== "Unable to geocode")
           { that.setState({ geocode: data })
-            fetch(`https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/${position.coords.latitude},${position.coords.longitude}?units=si`)
+            fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/${position.coords.latitude},${position.coords.longitude}?units=si`)
             .then(response => response.json())
             .then(data => that.setState({
               weatherInfo: data,
@@ -53,7 +53,7 @@ class App extends Component {
     .then(data => {
       if (data.error !== "Unable to geocode")
       { this.setState({ geocode: data[0] })
-        fetch(`https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/${this.state.geocode.lat},${this.state.geocode.lon}?units=si`)
+        fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${process.env.REACT_APP_DARK_SKY_KEY}/${this.state.geocode.lat},${this.state.geocode.lon}?units=si`)
         .then(response => response.json())
         .then(data => this.setState({
           weatherInfo: data,
