@@ -5,14 +5,14 @@ const Welcome = (props) => {
   let display = ""
 
   if(props.data.loading) {
-    if(props.data.noresult) {display = <div>Couldn't Find Location</div>}
-      else {display = <div>Searching Weather</div>}
+    if(props.data.noresult) {display = <div className={classes.textfocusin}>Couldn't Find Location</div>}
+      else {display = <div className={classes.loader}></div>}
   } else {
-    display = <div>Welcome to<br /><br />Weather Search</div>
+    display = <div className={classes.textfocusin}>Welcome to<br /><br />Weather Search</div>
   }
 
   return <div className={classes.welcome}>
-    <h1 className={classes.textfocusin}>{display}</h1>
+    <h1>{display}</h1>
   </div>
 }
 
