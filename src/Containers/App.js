@@ -22,7 +22,7 @@ class App extends Component {
     const that = this;
     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(coordinates);
     function coordinates(position) {
-      that.setState({ loading: true });
+      that.setState({ loading: true, noresult: false });
       fetch(`https://eu1.locationiq.com/v1/reverse.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json&accept-language=en&addressdetails=1`)
         .then(response => response.json())
         .then(data => {
@@ -40,9 +40,16 @@ class App extends Component {
   }
 
   handleSearch = () => {
-    this.setState({ loading: true })
+    this.setState({ loading: true, noresult: false })
     fetch(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_KEY}&q=${this.state.city}&format=json&accept-language=en&addressdetails=1`)
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json();
+      } else {
+        this.setState({noresult: true});
+        return response.json();
+      }
+    })
     .then(data => {
       if (data.error !== "Unable to geocode")
       { this.setState({ geocode: data[0] })
@@ -79,7 +86,7 @@ class App extends Component {
   render() {
     let displayToday = false;
     let displayWeek = false;
-    let welcome = <Welcome loading={this.state.loading} />;
+    let welcome = <Welcome data={this.state} />;
 
     if (this.state.geocode !== "" && this.state.weatherInfo !== undefined && this.state.loading === false) {
       welcome = false;
@@ -109,9 +116,9 @@ class App extends Component {
       <div className="app">
         <main>
           <Navbar handleChange={this.handleChange} />
-            {welcome}
-            {displayToday}
-            {displayWeek}
+          {welcome}
+          {displayToday}
+          {displayWeek}
         </main>
         <Footer />
       </div>
