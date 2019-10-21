@@ -8,9 +8,9 @@ Check the App here [here](https://pacmanreis.github.io/react-weather/).
 This project was created to gain experience and demonstrate my skills working with React.js.
 
 ## Features
-- Search/Foward and Reverse Geodcoding with LocationIQ API.
+- Search/Forward and Reverse Geocoding with LocationIQ API.
 - Search weather information with Dark Sky API.
-- Requests geolocation and loads location automaticaly when app loads.
+- Requests geolocation and loads location automatically when app loads.
 - Shows detailed weather information when Today or Week cards are clicked.
 - Transitions animations when Today and Week cards enters/leaves DOM.
 - Loading Animation while waiting for API response.
