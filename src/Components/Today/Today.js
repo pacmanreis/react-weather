@@ -15,7 +15,8 @@ const convertHours = (unixTimestamp) => {
 
 const Today = (props) => {
   const city = props.data.geocode.address.city === undefined ?
-  props.data.geocode.address.state : props.data.geocode.address.city
+  props.data.geocode.address.state === undefined ?
+  props.data.city : props.data.geocode.address.state : props.data.geocode.address.city
   const country = props.data.geocode.address.country
 
   const currentData = props.data.weatherInfo.currently;
@@ -56,7 +57,7 @@ const Today = (props) => {
   return(
     <div className="container" onClick={props.clicked}>
       <div className="header">
-        <div>{city}, {country} (Today)</div>
+        <div>Today: <span className={classes.capitalize}>{city}</span> ({country})</div>
         <div>{Math.round(dailyData[0].temperatureHigh)}º/{Math.round(dailyData[0].temperatureLow)}º</div>
       </div>
       <div className="body">

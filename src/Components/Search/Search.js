@@ -12,7 +12,7 @@ function Search(props) {
         name='city'
         placeholder='Search for a City'
         minLength={2}
-        debounceTimeout={300}
+        debounceTimeout={400}
         onChange={props.handleChange}
       />
     </div>
