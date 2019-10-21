@@ -37,7 +37,7 @@ const Today = (props) => {
      : null
   )
 
-  const summary = <div>
+  const summary = <>
                     <div className={classes.upperSummary}>
                       <div><img src={`./assets/weather/${currentData.icon}.svg`} alt={currentData.icon} width="60"/></div>
                       <div>
@@ -51,7 +51,7 @@ const Today = (props) => {
                       <p className="summary">{props.data.weatherInfo.hourly.summary}</p>
                       <p className="details">See more</p>
                     </div>
-                  </div>
+                  </>
 
   return(
     <div className="container" onClick={props.clicked}>

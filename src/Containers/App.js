@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import Navbar from '../Components/Navbar/Navbar';
+import Search from '../Components/Search/Search';
 import Today from '../Components/Today/Today';
 import Week from '../Components/Week/Week';
 import Welcome from '../Components/Welcome/Welcome';
 import Footer from '../Components/Footer/Footer';
-import './App.css';
+import classes from './App.module.css'
+import './App.css'
 
 class App extends Component {
   state = {
@@ -74,13 +75,13 @@ class App extends Component {
   handleClickToday = () => {
     this.setState((prevState) => {
       return {todaySummary: !prevState.todaySummary}
-    })
+    });
   }
 
   handleClickWeek = () => {
     this.setState((prevState) => {
       return {weekSummary: !prevState.weekSummary}
-    })
+    });
   }
 
   render() {
@@ -113,9 +114,9 @@ class App extends Component {
     };
 
     return (
-      <div className="app">
+      <div className={classes.app}>
         <main>
-          <Navbar handleChange={this.handleChange} />
+          <Search handleChange={this.handleChange} />
           {welcome}
           {displayToday}
           {displayWeek}

@@ -1,9 +1,9 @@
-.navbar {
+.search {
   margin-top: 5px;
   margin-bottom: 10px;
 }
 
-.search {
+.searchBar {
   border-radius: 3px;
   border-style: solid;
   border-width: thin;

@@ -27,11 +27,13 @@ const Week = props => {
 
   return(
     <div className="container" onClick={props.clicked}>
-    <div className="header">
-      <div>Next 7 Days</div>
+      <div className="header">
+        <div>Next 7 Days</div>
+      </div>
+      <div className="body">
+        {props.data.weekSummary ? <div><p className="summary">{props.data.weatherInfo.daily.summary}</p><p className="details">See more</p></div> : dayData}
+      </div>
     </div>
-    <div className="body">{props.data.weekSummary ? <div><p className="summary">{props.data.weatherInfo.daily.summary}</p><p className="details">See more</p></div> : dayData}</div>
-  </div>
   )
 }
 

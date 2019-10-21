@@ -8,15 +8,11 @@ const Footer = () => {
       <a href="https://www.linkedin.com/in/paulo-reis-955411186/"
         target="_blank"
         rel="noopener noreferrer">
-        <img src="./assets/icons/linkedin.svg"
-          alt="linkedin"
-          width="15"/>
+        <img src="./assets/icons/linkedin.svg" alt="linkedin" width="15"/>
       </a> <a href="https://github.com/pacmanreis"
         target="_blank"
         rel="noopener noreferrer">
-        <img src="./assets/icons/github.svg"
-          alt="linkedin"
-          width="15"/>
+        <img src="./assets/icons/github.svg" alt="linkedin" width="15"/>
       </a>
     </p>
     <p>

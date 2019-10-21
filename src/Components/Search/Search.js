@@ -1,14 +1,14 @@
 import React from 'react'
 import { DebounceInput } from 'react-debounce-input';
 
-import classes from './Navbar.module.css'
+import classes from './Search.module.css'
 
-function Navbar(props) {
+function Search(props) {
   return (
-    <div className={classes.navbar}>
+    <div className={classes.search}>
       <DebounceInput
         type='text'
-        className={classes.search}
+        className={classes.searchBar}
         name='city'
         placeholder='Search for a City'
         minLength={2}
@@ -19,4 +19,4 @@ function Navbar(props) {
   )
 }
 
-export default React.memo(Navbar);
+export default React.memo(Search);
